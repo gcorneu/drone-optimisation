@@ -19,7 +19,7 @@ public class Map implements IMap {
 	private int currTurn;
 	private int maxPayload;
 	private ArrayList<IProduct> products;
-	private ArrayList<Warehouse> warehouses;
+	private ArrayList<IWarehouse> warehouses;
 	private List<IDrone> drones;
 	private List<IOrder> orders;
 	
@@ -35,11 +35,10 @@ public class Map implements IMap {
 
 	@Override
     public void setProducts(ArrayList<IProduct> products) {
-		
 		this.products = products;
 	}
 	
-	public void setWarehouses(ArrayList<Warehouse> warehouses) {
+	public void setWarehouses(ArrayList<IWarehouse> warehouses) {
 		this.warehouses = warehouses; }
 	
 	public List<IProduct> getProducts() {
@@ -59,7 +58,7 @@ public class Map implements IMap {
 	}
 
 	@Override
-	public ArrayList<Warehouse> getWarehouses() {
+	public ArrayList<IWarehouse> getWarehouses() {
 		return this.warehouses;
 	}
 
