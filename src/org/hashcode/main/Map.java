@@ -118,7 +118,8 @@ public class Map implements IMap {
 			if(bestONE>=orderCost){
 				bestONE = orderCost;
 				popopop = new ArrayList<IInstruction> ();
-				popopop.add(new Load(myWares.getValue().getCoords(), drone.getCoords(), anOrder.getPackages()));
+				IWarehouse smile = myWares.getValue();
+				popopop.add(new Load(smile .getCoords(), drone.getCoords(), smile.getID(), anOrder.getPackages()));
 				popopop.add(new Delivery());
 			}
 			
