@@ -39,6 +39,18 @@ public class Map implements IMap {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int getCurrentTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getMaxTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 

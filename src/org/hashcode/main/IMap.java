@@ -8,5 +8,7 @@ interface IMap {
     public List<IWarehouse> getWarehouses();
     public List<IDrone> getDrones();
     public List<IOrder> getOrders();
+    public int getCurrentTime();
+    public int getMaxTime();
     public int getDroneMaxWeight();
 }
