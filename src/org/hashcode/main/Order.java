@@ -46,14 +46,8 @@ public class Order implements IOrder{
 	}
 
 	@Override
-	public List<IPackage> getPackages() {
+	public ArrayList<IPackage> getPackages() {
 		return this.packages;
-	}
-
-	@Override
-	public Point getLocation() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
