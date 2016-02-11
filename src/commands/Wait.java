@@ -4,15 +4,17 @@ import org.hashcode.main.IInstruction;
 
 import javafx.geometry.Point2D;
 
-public class Load implements IInstruction{
+public class Wait implements IInstruction {
+
 	int distance=0;
-	public Load(Point2D dest, Point2D currentLoc){
-		distance=(int) dest.distance(currentLoc);
+	public Wait(int time){
+		distance=time;
 	}
 	
 	@Override
 	public int getTimeTaken() {
 		// TODO Auto-generated method stub
-		return distance+1;
+		return distance;
 	}
+
 }
