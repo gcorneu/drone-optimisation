@@ -8,6 +8,9 @@ import javafx.geometry.Point2D;
 
 public class Order implements IOrder{
 	private ArrayList<Integer> products;
+	private IWarehouse warehouse;
+	private boolean satisfied;
+	private List<IPackage> packages;
 	Point deliverTo;
 	
 	public Order(ArrayList<Integer> products, Point deliverTo) {
@@ -18,31 +21,33 @@ public class Order implements IOrder{
 	@Override
 	public IWarehouse getWarehouse() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.warehouse;
 	}
 
 	@Override
-	public List<IProduct> getProducts() {
+	public List<Integer> getProducts() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.products;
 	}
 
 	@Override
 	public boolean isSatisfied() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.satisfied;
 	}
 
 	@Override
 	public void setSatisfied(boolean b) {
-		// TODO Auto-generated method stub
-		
+		this.satisfied = b;
+	}
+
+	@Override
+	public Point getLocation() {
+		return this.deliverTo;
 	}
 
 	@Override
 	public List<IPackage> getPackages() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.packages;
 	}
 
 	@Override

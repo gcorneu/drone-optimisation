@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import org.hashcode.main.*;
 
+import commands.Load;
+import jdk.nashorn.internal.runtime.regexp.JoniRegExp.Factory;
 
 import java.util.List;
 import java.util.Map.Entry;
@@ -98,6 +100,10 @@ public class Map implements IMap {
 	}
 	
 	private ArrayList<IInstruction> getPickup(IDrone drone){
+		double bestONE=Double.POSITIVE_INFINITY;
+		
+		ArrayList<IInstruction> popopop =null;
+		
 		for (IOrder anOrder : orders) {
 			double orderCost = 0;
 			
@@ -109,8 +115,15 @@ public class Map implements IMap {
 				orderCost += p.getAmount()*(p.getProduct().getWeight());	
 			}
 			
+			if(bestONE>=orderCost){
+				bestONE = orderCost;
+				popopop = new ArrayList<IInstruction> ();
+				popopop.add(new Load(myWares.getValue().getCoords(), drone.getCoords(), anOrder.getPackages()));
+				popopop.add(new Delivery());
+			}
+			
 		}
-		return null;
+		return popopop;
 	}
 	
 	private Entry<Integer, IWarehouse> findFactory(ArrayList<IPackage> packs, Point droneloc, Point orderLoc){

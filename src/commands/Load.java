@@ -1,14 +1,28 @@
 package commands;
 
 import java.awt.Point;
+<<<<<<< HEAD
+import java.util.ArrayList;
+import java.util.List;
+=======
+>>>>>>> 72f886a29811abdc2b9fc8fc2b38ad8c2d8c6b32
 
 import org.hashcode.main.IInstruction;
+import org.hashcode.main.IPackage;
 
 
 public class Load implements IInstruction{
-	int distance=0;
-	public Load(Point dest, Point currentLoc){
+	private int distance=0;
+	private int wareID =0;
+	private ArrayList<IPackage> packages;
+	public Load(Point dest, Point currentLoc,int id, ArrayList<IPackage> list){
 		distance=(int) dest.distance(currentLoc);
+		wareID=id;
+		this.packages = list;
+	}
+	
+	public ArrayList<IPackage> getPackages(){
+		return packages;
 	}
 	
 	@Override
@@ -16,4 +30,9 @@ public class Load implements IInstruction{
 		// TODO Auto-generated method stub
 		return distance+1;
 	}
+
+	public int getWareID() {
+		return wareID;
+	}
+
 }
