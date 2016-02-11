@@ -7,5 +7,9 @@ public class App {
     	InputReader.readFile("mother_of_all_warehouses.in");
     	
         System.out.println("Hello World!");
+        IMap mapper = new Map(0, 0, 0, 0, 0);
+    	while(mapper.getCurrentTime() != mapper.getMaxTime()){
+    		
+    	}
     }
 }

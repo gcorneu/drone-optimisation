@@ -35,7 +35,6 @@ public class InputReader {
 		int numOfOrders = Integer.parseInt(scanner.nextLine());
 		for(int i = 0; i< numOfOrders; i++) {
 			String[] delivery = scanner.nextLine().split(" ");
-			System.out.println("Deliver to "+ delivery[0]+ " "+ delivery[1]);
 			Point deliverTo = new Point(Integer.parseInt(delivery[0]), Integer.parseInt(delivery[1]));
 			int numOfItems = Integer.parseInt(scanner.nextLine());
 			ArrayList<Integer> items = new ArrayList<>();

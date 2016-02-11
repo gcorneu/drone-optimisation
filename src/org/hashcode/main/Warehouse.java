@@ -31,5 +31,15 @@ public class Warehouse implements IWarehouse{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public List<IPackage> getPackages() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean hasPackages(ArrayList<IPackage> packs) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

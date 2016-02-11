@@ -1,6 +1,6 @@
 package org.hashcode.main;
 
-interface IProduct {
+public interface IProduct {
     public int getWeight();
     
     public int getId();
