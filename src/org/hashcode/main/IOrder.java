@@ -7,7 +7,7 @@ interface IOrder {
      * @return The warehouse that this package is currently at.
      **/
     public IWarehouse getWarehouse();
-    public List<IProduct> getProducts();
+    public List<IPackage> getPackages();
     public boolean isSatisfied();
     public void setSatisfied(boolean b);
 }

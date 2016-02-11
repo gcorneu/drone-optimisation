@@ -2,7 +2,11 @@ package org.hashcode.main;
 
 import java.util.ArrayList;
 import org.hashcode.main.*;
+
+import javafx.geometry.Point2D;
+
 import java.util.List;
+import java.util.TreeMap;
 
 public class Map implements IMap {
 
@@ -94,7 +98,30 @@ public class Map implements IMap {
 	}
 	
 	private ArrayList<IInstruction> getPickup(){
+		for (IOrder anOrder : orders) {
+			double orderCost = 0;
+			for (IPackage p : anOrder.getPackages()) {
+				orderCost += p.getAmount()*(p.getProduct().getWeight());
+				
+			}
+			
+		}
 		return null;
+	}
+	
+	private IWarehouse findFactory(ArrayList<IPackage> packs, Point2D loc){
+		TreeMap<Integer, IWarehouse> satWarehouse = new TreeMap<Integer, IWarehouse> ();
+		for (IWarehouse wh : warehouses) {
+			if(wh.hasPackages(packs)){
+				satWarehouse.put((int) loc.distance(wh.getCoords()), wh);
+			}
+		}
+		if(!satWarehouse.isEmpty()){
+			return satWarehouse.firstEntry().getValue();
+		}else{
+			//TODO FUCK THE GAME UP, LETS FIND MULTI PLACES
+			return null;
+		}
 	}
 	
 
