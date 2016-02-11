@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.geometry.Point2D;
+
 public class Order implements IOrder{
 	private ArrayList<Integer> products;
 	Point deliverTo;
@@ -39,6 +41,12 @@ public class Order implements IOrder{
 
 	@Override
 	public List<IPackage> getPackages() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Point2D getLocation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
