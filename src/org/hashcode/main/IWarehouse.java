@@ -10,4 +10,5 @@ interface IWarehouse {
     public Point setCoords(Point coords);
     public Point getCoords();
 	public boolean hasPackages(ArrayList<IPackage> packs);
+	List<IProduct> getProducts();
 }
