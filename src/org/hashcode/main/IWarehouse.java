@@ -10,6 +10,7 @@ interface IWarehouse {
 	public List<IPackage> getPackages();
     public Point setCoords(Point coords);
     public Point getCoords();
-	public boolean hasPackages(ArrayList<IPackage> packs);
+    public boolean hasPackages(ArrayList<IPackage> packs);
+	public boolean minusPackages(ArrayList<IPackage> packs);
 	List<IProduct> getProducts();
 }

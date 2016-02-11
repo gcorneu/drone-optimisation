@@ -4,8 +4,9 @@ import java.awt.Point;
 import java.util.ArrayList;
 import org.hashcode.main.*;
 
+import commands.Deliver;
 import commands.Load;
-import jdk.nashorn.internal.runtime.regexp.JoniRegExp.Factory;
+import commands.Wait;
 
 import java.util.List;
 import java.util.Map.Entry;
@@ -82,7 +83,7 @@ public class Map implements IMap {
 	@Override
 	public int getCurrentTime() {
 		// TODO Auto-generated method stub
-		return 0;
+		return currTurn;
 	}
 
 	@Override
@@ -90,39 +91,54 @@ public class Map implements IMap {
 		return maxTurns;
 	}
 	
-	public int growOld(){
+	public void growOld(){
 		for (IDrone drone : drones) {
 			if(drone.isIdle(currTurn)){
-				
+				drone.addInstructions(getPickup(drone));
 			}
 		}
-		return 0;
+		currTurn++;
+		
 	}
 	
 	private ArrayList<IInstruction> getPickup(IDrone drone){
 		double bestONE=Double.POSITIVE_INFINITY;
 		
 		ArrayList<IInstruction> popopop =null;
+		IWarehouse smile =null;
+		IOrder orderingy =null;
 		
 		for (IOrder anOrder : orders) {
-			double orderCost = 0;
-			
-			Entry<Integer, IWarehouse> myWares= findFactory((ArrayList<IPackage>) anOrder.getPackages(), drone.getCoords(), anOrder.getLocation());
-			
-			orderCost += myWares.getKey()*myFUCK;
+			if(!anOrder.isSatisfied()){
+				double orderCost = 0;
+				
+				Entry<Integer, IWarehouse> myWares= findFactory((ArrayList<IPackage>) anOrder.getPackages(), drone.getCoords(), anOrder.getLocation());
+				if(myWares!=null){
+					orderCost += myWares.getKey()*myFUCK;
+							
+					for (IPackage p : anOrder.getPackages()) {
+						orderCost += p.getAmount()*(p.getProduct().getWeight());	
+					}
 					
-			for (IPackage p : anOrder.getPackages()) {
-				orderCost += p.getAmount()*(p.getProduct().getWeight());	
+					if(bestONE>=orderCost){
+						bestONE = orderCost;
+						popopop = new ArrayList<IInstruction> ();
+						IWarehouse smiley = myWares.getValue();
+						smile=smiley;
+						orderingy = anOrder;
+						popopop.add(new Load(smile .getCoords(), drone.getCoords(), smile.getID(), anOrder.getPackages()));
+						popopop.add(new Deliver(anOrder.getLocation(), smile.getCoords(), anOrder.getID(), anOrder.getPackages()));
+					}
+				}
 			}
-			
-			if(bestONE>=orderCost){
-				bestONE = orderCost;
-				popopop = new ArrayList<IInstruction> ();
-				IWarehouse smile = myWares.getValue();
-				popopop.add(new Load(smile .getCoords(), drone.getCoords(), smile.getID(), anOrder.getPackages()));
-				popopop.add(new Delivery());
-			}
-			
+		}
+		if(popopop!=null){
+			smile.minusPackages(orderingy.getPackages());
+			orderingy.setSatisfied(true);
+		}else{
+
+			popopop = new ArrayList<IInstruction> ();
+			popopop.add(new Wait(100000));
 		}
 		return popopop;
 	}
