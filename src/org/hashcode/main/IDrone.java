@@ -3,13 +3,13 @@ package org.hashcode.main;
 import java.util.List;
 
 
-import javafx.geometry.Point2D;
+import java.awt.Point;
 
 public interface IDrone {
     public List<IInstruction> getInstructions();
 
-    public void setCoords(Point2D coords);
-    public Point2D getCoords();
+    public void setCoords(Point coords);
+    public Point getCoords();
     
     public boolean isIdle(int time);
 
