@@ -6,10 +6,12 @@ import org.hashcode.main.*;
 import javafx.geometry.Point2D;
 
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 public class Map implements IMap {
 
+	static int myFUCK = 1000;
 	private int width;
 	private int height;
 	private int numberOfDrones;
@@ -97,27 +99,32 @@ public class Map implements IMap {
 		return 0;
 	}
 	
-	private ArrayList<IInstruction> getPickup(){
+	private ArrayList<IInstruction> getPickup(IDrone drone){
 		for (IOrder anOrder : orders) {
 			double orderCost = 0;
+			
+			Entry<Integer, IWarehouse> myWares= findFactory((ArrayList<IPackage>) anOrder.getPackages(), drone.getCoords(), anOrder.getLocation());
+			
+			orderCost += myWares.getKey()*myFUCK;
+					
 			for (IPackage p : anOrder.getPackages()) {
-				orderCost += p.getAmount()*(p.getProduct().getWeight());
-				
+				orderCost += p.getAmount()*(p.getProduct().getWeight());	
 			}
 			
 		}
 		return null;
 	}
 	
-	private IWarehouse findFactory(ArrayList<IPackage> packs, Point2D loc){
+	private Entry<Integer, IWarehouse> findFactory(ArrayList<IPackage> packs, Point2D droneloc, Point2D orderLoc){
 		TreeMap<Integer, IWarehouse> satWarehouse = new TreeMap<Integer, IWarehouse> ();
 		for (IWarehouse wh : warehouses) {
 			if(wh.hasPackages(packs)){
-				satWarehouse.put((int) loc.distance(wh.getCoords()), wh);
+				Integer dist = (int) (droneloc.distance(wh.getCoords())+orderLoc.distance(wh.getCoords()));
+				satWarehouse.put(dist, wh);
 			}
 		}
 		if(!satWarehouse.isEmpty()){
-			return satWarehouse.firstEntry().getValue();
+			return satWarehouse.firstEntry();
 		}else{
 			//TODO FUCK THE GAME UP, LETS FIND MULTI PLACES
 			return null;
