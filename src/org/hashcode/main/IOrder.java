@@ -1,8 +1,8 @@
 package org.hashcode.main;
 
+import java.awt.Point;
 import java.util.List;
 
-import javafx.geometry.Point2D;
 
 interface IOrder {
     /**
@@ -10,7 +10,7 @@ interface IOrder {
      **/
     public IWarehouse getWarehouse();
     public List<IPackage> getPackages();
-    public Point2D getLocation();
+    public Point getLocation();
     public boolean isSatisfied();
     public void setSatisfied(boolean b);
 }
