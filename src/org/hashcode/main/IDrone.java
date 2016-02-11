@@ -10,6 +10,8 @@ interface IDrone {
 
     public void setCoords(Point2D coords);
     public Point2D getCoords();
+    
+    public boolean isIdle(int time);
 
     public void setWeight(int weight);
     public int getWeight();
