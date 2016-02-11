@@ -6,6 +6,7 @@ import java.util.List;
 
 
 interface IWarehouse {
+	public int getID();
 	public List<IPackage> getPackages();
     public Point setCoords(Point coords);
     public Point getCoords();

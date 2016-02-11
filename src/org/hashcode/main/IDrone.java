@@ -6,6 +6,7 @@ import java.util.List;
 import java.awt.Point;
 
 public interface IDrone {
+	public int getID();
     public List<IInstruction> getInstructions();
 
     public void setCoords(Point coords);

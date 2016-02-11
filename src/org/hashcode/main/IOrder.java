@@ -9,6 +9,7 @@ interface IOrder {
     /**
      * @return The warehouse that this package is currently at.
      **/
+	public int getID();
     public IWarehouse getWarehouse();
     public ArrayList<IPackage> getPackages();
     public Point getLocation();
