@@ -10,7 +10,11 @@ public class Map implements IMap {
 	private int numberOfDrones;
 	private int maxTurns;
 	private int maxPayload;
-	private ArrayList<IProduct> products;
+	
+	private List<IProduct> products;
+	private List<IWarehouse> warehouses;
+	private List<IDrone> drones;
+	private List<IOrder> orders;
 	
 	public Map(int width, int height, int numberOfDrones, int maxTurns, int maxPayload) {
 		this.width = width;
@@ -18,6 +22,9 @@ public class Map implements IMap {
 		this.numberOfDrones = numberOfDrones;
 		this.maxTurns = maxTurns;
 		this.maxPayload = maxPayload;
+		
+		this.warehouses = new ArrayList<IWarehouse>();
+		this.drones = new ArrayList<IDrone>();
 	}
 
 	public void setProducts(ArrayList<IProduct> products) {
@@ -25,40 +32,40 @@ public class Map implements IMap {
 		this.products = products;
 	}
 	
+	public List<IProduct> getProducts() {
+		return this.products;
+	}
+	
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.width;
 	}
 
 	@Override
 	public int getHeight() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.height;
 	}
 
 	@Override
 	public List<IWarehouse> getWarehouses() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.warehouses;
 	}
 
 	@Override
 	public List<IDrone> getDrones() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.drones;
 	}
 
 	@Override
 	public List<IOrder> getOrders() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.orders;
 	}
 
 	@Override
 	public int getDroneMaxWeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.maxPayload;
 	}
 
 	@Override
