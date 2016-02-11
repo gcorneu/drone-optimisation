@@ -16,4 +16,10 @@ public class Wait implements IInstruction {
 		return distance;
 	}
 
+	@Override
+	public String getOutput(int id) {
+			
+		return ""+id +" "+ "W" + " " + distance;
+	}
+
 }

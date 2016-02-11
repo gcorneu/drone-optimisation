@@ -30,5 +30,14 @@ public class Load implements IInstruction{
 	public int getWareID() {
 		return wareID;
 	}
+	
+	@Override
+	public String getOutput(int id) {
+		String papa = "";
+		for (IPackage iPackage : packages) {
+			papa+=""+id+" "+"L"+" "+ wareID + " "+ iPackage.getProduct().getId()+ " " + iPackage.getAmount()+"\n";
+		}
+		return papa;
+	}
 
 }

@@ -29,4 +29,13 @@ public class Deliver implements IInstruction{
 	public int getCustID() {
 		return custID;
 	}
+
+	@Override
+	public String getOutput(int id) {
+		String papa = "";
+		for (IPackage iPackage : packages) {
+			papa+=""+id+" "+"D"+" "+ custID + " "+ iPackage.getProduct().getId()+ " " + iPackage.getAmount()+"\n";
+		}
+		return papa;
+	}
 }
