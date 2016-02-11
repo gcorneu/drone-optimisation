@@ -1,9 +1,9 @@
 package org.hashcode.main;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import org.hashcode.main.*;
 
-import javafx.geometry.Point2D;
 
 import java.util.List;
 import java.util.Map.Entry;
@@ -19,7 +19,7 @@ public class Map implements IMap {
 	private int currTurn;
 	private int maxPayload;
 	private ArrayList<IProduct> products;
-	private ArrayList<Warehouse> warehouses;
+	private ArrayList<IWarehouse> warehouses;
 	private List<IDrone> drones;
 	private List<IOrder> orders;
 	
@@ -35,11 +35,10 @@ public class Map implements IMap {
 
 	@Override
     public void setProducts(ArrayList<IProduct> products) {
-		
 		this.products = products;
 	}
 	
-	public void setWarehouses(ArrayList<Warehouse> warehouses) {
+	public void setWarehouses(ArrayList<IWarehouse> warehouses) {
 		this.warehouses = warehouses; }
 	
 	public List<IProduct> getProducts() {
@@ -59,7 +58,7 @@ public class Map implements IMap {
 	}
 
 	@Override
-	public ArrayList<Warehouse> getWarehouses() {
+	public ArrayList<IWarehouse> getWarehouses() {
 		return this.warehouses;
 	}
 
@@ -114,11 +113,11 @@ public class Map implements IMap {
 		return null;
 	}
 	
-	private Entry<Integer, IWarehouse> findFactory(ArrayList<IPackage> packs, Point2D droneloc, Point2D orderLoc){
+	private Entry<Integer, IWarehouse> findFactory(ArrayList<IPackage> packs, Point droneloc, Point orderLoc){
 		TreeMap<Integer, IWarehouse> satWarehouse = new TreeMap<Integer, IWarehouse> ();
 		for (IWarehouse wh : warehouses) {
 			if(wh.hasPackages(packs)){
-				Integer dist = (int) (droneloc.distance(wh.getCoords())+orderLoc.distance(wh.getCoords()));
+				Integer dist = (int) (Math.sqrt(droneloc.distanceSq(wh.getCoords())+orderLoc.distanceSq(wh.getCoords())));
 				satWarehouse.put(dist, wh);
 			}
 		}

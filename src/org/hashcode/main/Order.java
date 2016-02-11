@@ -46,7 +46,7 @@ public class Order implements IOrder{
 	}
 
 	@Override
-	public Point2D getLocation() {
+	public Point getLocation() {
 		// TODO Auto-generated method stub
 		return null;
 	}

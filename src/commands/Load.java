@@ -1,12 +1,13 @@
 package commands;
 
+import java.awt.Point;
+
 import org.hashcode.main.IInstruction;
 
-import javafx.geometry.Point2D;
 
 public class Load implements IInstruction{
 	int distance=0;
-	public Load(Point2D dest, Point2D currentLoc){
+	public Load(Point dest, Point currentLoc){
 		distance=(int) dest.distance(currentLoc);
 	}
 	

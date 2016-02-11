@@ -1,13 +1,13 @@
 package commands;
 
-import org.hashcode.main.IInstruction;
+import java.awt.Point;
 
-import javafx.geometry.Point2D;
+import org.hashcode.main.IInstruction;
 
 public class Unload implements IInstruction{
 
 	int distance=0;
-	public Unload(Point2D dest, Point2D currentLoc){
+	public Unload(Point dest, Point currentLoc){
 		distance=(int) dest.distance(currentLoc);
 	}
 	

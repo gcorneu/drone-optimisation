@@ -21,13 +21,7 @@ public class Warehouse implements IWarehouse{
 	}
 
 	@Override
-	public Point2D setCoords(Point2D coords) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Point2D getCoords() {
+	public Point getCoords() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -40,6 +34,11 @@ public class Warehouse implements IWarehouse{
 	public boolean hasPackages(ArrayList<IPackage> packs) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public Point setCoords(Point coords) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

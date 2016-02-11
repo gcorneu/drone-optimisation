@@ -2,7 +2,6 @@ package commands;
 
 import org.hashcode.main.IInstruction;
 
-import javafx.geometry.Point2D;
 
 public class Wait implements IInstruction {
 

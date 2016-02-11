@@ -9,7 +9,7 @@ interface IMap {
     public int getHeight();
     public void setProducts(ArrayList<IProduct> products);
     public List<IProduct> getProducts();
-    public ArrayList<Warehouse> getWarehouses();
+    public ArrayList<IWarehouse> getWarehouses();
     public List<IDrone> getDrones();
     public List<IOrder> getOrders();
     public int getCurrentTime();
