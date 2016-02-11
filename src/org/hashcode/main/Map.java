@@ -67,6 +67,18 @@ public class Map implements IMap {
 	public int getDroneMaxWeight() {
 		return this.maxPayload;
 	}
+
+	@Override
+	public int getCurrentTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getMaxTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 
