@@ -53,4 +53,10 @@ public class Drone implements IDrone {
 	public int getRemainingWeight() {
 		return this.weight;
 	}
+
+	@Override
+	public int getID() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
