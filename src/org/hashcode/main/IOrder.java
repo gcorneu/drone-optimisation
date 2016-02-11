@@ -14,5 +14,5 @@ interface IOrder {
     public Point getLocation();
     public boolean isSatisfied();
     public void setSatisfied(boolean b);
-	List<IProduct> getProducts();
+	List<Integer> getProducts();
 }

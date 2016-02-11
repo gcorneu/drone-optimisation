@@ -1,8 +1,11 @@
 package commands;
 
 import java.awt.Point;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 72f886a29811abdc2b9fc8fc2b38ad8c2d8c6b32
 
 import org.hashcode.main.IInstruction;
 import org.hashcode.main.IPackage;
