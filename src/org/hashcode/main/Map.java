@@ -11,6 +11,7 @@ public class Map implements IMap {
 	private int maxTurns;
 	private int maxPayload;
 	private ArrayList<IProduct> products;
+	private ArrayList<Warehouse> warehouses;
 	
 	public Map(int width, int height, int numberOfDrones, int maxTurns, int maxPayload) {
 		this.width = width;
@@ -23,6 +24,10 @@ public class Map implements IMap {
 	public void setProducts(ArrayList<IProduct> products) {
 		// TODO Auto-generated method stub
 		this.products = products;
+	}
+	
+	public void setWarehouses(ArrayList<Warehouse> warehouses) {
+		this.warehouses = warehouses;
 	}
 	
 	@Override
