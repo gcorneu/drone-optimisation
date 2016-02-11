@@ -8,4 +8,6 @@ interface IOrder {
      **/
     public IWarehouse getWarehouse();
     public List<IProduct> getProducts();
+    public boolean isSatisfied();
+    public void setSatisfied(boolean b);
 }
