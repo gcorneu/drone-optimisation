@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputReader {
+	private static Map map;
 	public static void readFile(String filename) throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File(filename));
 		String s = scanner.nextLine();
 		String mapParams[] = s.split(" ");
-		Map map = new Map(Integer.parseInt(mapParams[0]), Integer.parseInt(mapParams[1]),
+		map = new Map(Integer.parseInt(mapParams[0]), Integer.parseInt(mapParams[1]),
 				Integer.parseInt(mapParams[2]), Integer.parseInt(mapParams[3]), Integer.parseInt(mapParams[4]));
 		int numOfproductTypes = Integer.parseInt(scanner.nextLine());
 		String[] weights = scanner.nextLine().split(" ");
@@ -45,5 +46,9 @@ public class InputReader {
 			orders.add(new Order(items, deliverTo));
 		}
 		
+	}
+	
+	public static Map getMap() {
+		return map;
 	}
 }
