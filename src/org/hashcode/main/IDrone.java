@@ -5,7 +5,7 @@ import java.util.List;
 
 import javafx.geometry.Point2D;
 
-interface IDrone {
+public interface IDrone {
     public List<IInstruction> getInstructions();
 
     public void setCoords(Point2D coords);

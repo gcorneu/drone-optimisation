@@ -1,6 +1,7 @@
 package org.hashcode.main;
 
 import java.util.ArrayList;
+import org.hashcode.main.*;
 import java.util.List;
 
 public class Map implements IMap {
@@ -9,6 +10,7 @@ public class Map implements IMap {
 	private int height;
 	private int numberOfDrones;
 	private int maxTurns;
+	private int currTurn;
 	private int maxPayload;
 	
 	private List<IProduct> products;
@@ -23,12 +25,15 @@ public class Map implements IMap {
 		this.maxTurns = maxTurns;
 		this.maxPayload = maxPayload;
 		
+		currTurn=0;
+		
 		this.warehouses = new ArrayList<IWarehouse>();
 		this.drones = new ArrayList<IDrone>();
 	}
 
-	public void setProducts(ArrayList<IProduct> products) {
-		// TODO Auto-generated method stub
+	@Override
+    public void setProducts(ArrayList<IProduct> products) {
+		
 		this.products = products;
 	}
 	
@@ -76,10 +81,21 @@ public class Map implements IMap {
 
 	@Override
 	public int getMaxTime() {
-		// TODO Auto-generated method stub
+		return maxTurns;
+	}
+	
+	public int growOld(){
+		for (IDrone drone : drones) {
+			if(drone.isIdle(currTurn)){
+				
+			}
+		}
 		return 0;
 	}
 	
+	private ArrayList<IInstruction> getPickup(){
+		return null;
+	}
 	
 
 }

@@ -1,5 +1,5 @@
 package org.hashcode.main;
 
-public interface IInstruction {
+interface IInstruction {
 	public int getTimeTaken();
 }

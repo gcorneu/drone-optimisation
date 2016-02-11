@@ -1,6 +1,7 @@
 package org.hashcode.main;
 
 import java.util.ArrayList;
+import org.hashcode.main.IProduct;
 import java.util.List;
 
 interface IMap {
