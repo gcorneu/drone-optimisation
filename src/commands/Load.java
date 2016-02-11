@@ -3,7 +3,6 @@ package commands;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.hashcode.main.IInstruction;
 import org.hashcode.main.IPackage;
 

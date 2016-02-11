@@ -10,6 +10,5 @@ public class OutputWriter {
 
 	public void writeOutput() throws IOException {
 		BufferedWriter bw = new BufferedWriter(new FileWriter(new File("output.txt")));
-		bw.
 	}
 }
