@@ -40,14 +40,22 @@ public class Order implements IOrder{
 		this.satisfied = b;
 	}
 
+	
+
 	@Override
-	public Point getLocation() {
-		return this.deliverTo;
+	public int getID() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public ArrayList<IPackage> getPackages() {
+<<<<<<< HEAD
 		return this.packages;
+=======
+		// TODO Auto-generated method stub
+		return null;
+>>>>>>> 0e64f78ba357256ced619ee5a07cabc376bd2ac4
 	}
 
 }

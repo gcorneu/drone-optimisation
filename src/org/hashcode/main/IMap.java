@@ -15,4 +15,5 @@ interface IMap {
     public int getCurrentTime();
     public int getMaxTime();
     public int getDroneMaxWeight();
+	public void growOld();
 }
